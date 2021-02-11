@@ -42,8 +42,8 @@ pub enum Status {
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 // MCU action request, user-provided state is returned in the Response object (requires decode)
 pub struct Request {
-    pub(crate) kind: RequestKind,
-    pub(crate) state: i32,
+    pub kind: RequestKind,
+    pub state: i32,
 }
 
 #[derive(Serialize, Deserialize, Debug, Eq, PartialEq)]
@@ -59,9 +59,9 @@ pub enum ResponseKind{
 // MCU action response, can include up to 256 bytes of data and will include request-provided state
 // if the object successfully decoded; -1 otherwise.
 pub struct Response {
-    pub(crate) status: Status,
-    pub(crate) state: i32,
-    pub(crate) data: Option<ResponseKind>,
+    pub status: Status,
+    pub state: i32,
+    pub data: Option<ResponseKind>,
 }
 
 // struct holding the current* value of the encoders
