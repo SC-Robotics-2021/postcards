@@ -85,7 +85,7 @@ pub struct MotorDelta {
     pub delta: i64,
 }
 
-#[derive(Serialize, Deserialize, Debug, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Eq, PartialEq, Copy, Clone)]
 pub struct KinematicArmPose {
     pub lower_axis: u16,
     pub central_axis: u16,
