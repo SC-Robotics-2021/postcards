@@ -2,6 +2,7 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[non_exhaustive]
 // Request kind
 pub enum RequestKind {
     /// Sets all Drive motors to target speed. Target must be within [-1.0, 1.0]
@@ -41,7 +42,6 @@ pub enum Status {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-#[non_exhaustive]
 // MCU action request, user-provided state is returned in the Response object (requires decode)
 pub struct Request {
     pub kind: RequestKind,
