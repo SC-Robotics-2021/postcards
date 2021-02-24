@@ -7,6 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-postcard = "0.5.0"
+postcard = "0.5.1"
 serde = { version = "1.0.114", default-features = false }
 postcard-cobs = { version = "0.1.5-pre", default-features = false }

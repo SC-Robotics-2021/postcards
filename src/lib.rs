@@ -48,7 +48,7 @@ pub struct Request {
     pub state: i32,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[non_exhaustive]
 /// The kind of response, this is marked non-exhaustive to allow expansion to the protocol
 pub enum ResponseKind{
@@ -58,7 +58,7 @@ pub enum ResponseKind{
     KinematicArmPose(KinematicArmPose),
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 // MCU action response, can include up to 256 bytes of data and will include request-provided state
 // if the object successfully decoded; -1 otherwise.
 pub struct Response {
@@ -85,7 +85,7 @@ pub struct MotorDelta {
     pub delta: i64,
 }
 
-#[derive(Serialize, Deserialize, Debug, Copy, Clone)]
+#[derive(Serialize, Deserialize, Debug, Copy, Clone, PartialEq)]
 pub struct KinematicArmPose {
     pub lower_axis: f32,
     pub central_axis: f32,
