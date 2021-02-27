@@ -89,11 +89,11 @@ pub struct MotorDelta {
 
 #[derive(Serialize, Deserialize, Debug, Copy, Clone, PartialEq)]
 pub struct KinematicArmPose {
-    pub lower_axis: f32,
-    pub upper_axis: f32,
-    pub rotation_axis: f32,
-    pub pitch_axis: f32,
-    pub grip_axis: f32
+    pub lower_axis: Option<f32>,
+    pub upper_axis: Option<f32>,
+    pub rotation_axis: Option<f32>,
+    pub pitch_axis: Option<f32>,
+    pub grip_axis: Option<f32>
 }
 
 
