@@ -26,7 +26,9 @@ pub enum RequestKind {
     /// Get the encoder counts.
     GetMotorEncoderCounts,
     /// gets the state of the kinematic model arm
-    GetKinematicArmPose
+    GetKinematicArmPose,
+    /// Sets the arm from a provided pose
+    SetArmPose(KinematicArmPose)
 }
 
 #[derive(Serialize, Deserialize, Debug, Eq, PartialEq)]
