@@ -1,6 +1,6 @@
 [package]
 name = "rover_postcards"
-version = "0.5.0"
+version = "0.5.1"
 authors = ["Joshua Salzedo <joshuasalzedo@gmail.com>"]
 edition = "2018"
 
