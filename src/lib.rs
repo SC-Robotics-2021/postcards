@@ -1,5 +1,12 @@
 #![no_std]
+
+pub mod arm;
+pub mod drivetrain;
+
 use serde::{Deserialize, Serialize};
+
+pub use arm::KinematicArmPose;
+pub use drivetrain::{MotorCounts, MotorDelta};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[non_exhaustive]
@@ -68,34 +75,6 @@ pub struct Response {
     pub state: i32,
     pub data: Option<ResponseKind>,
 }
-
-// struct holding the current* value of the encoders
-// * up to 1 second in lag as this occurs on a 1hz update timer
-#[derive(Serialize, Deserialize, Debug, Eq, PartialEq, Copy, Clone)]
-pub struct MotorCounts {
-    // these two have 32 bit resolution due to their timer
-    pub north_west: MotorDelta,
-    pub north_east: MotorDelta,
-    // different timer, which only has 16 bit resolution
-    pub south_east: MotorDelta,
-    pub south_west: MotorDelta,
-}
-
-#[derive(Serialize, Deserialize, Debug, Eq, PartialEq, Copy, Clone)]
-pub struct MotorDelta {
-    pub count: u32,
-    pub delta: i64,
-}
-
-#[derive(Serialize, Deserialize, Debug, Copy, Clone, PartialEq)]
-pub struct KinematicArmPose {
-    pub lower_axis: Option<f32>,
-    pub upper_axis: Option<f32>,
-    pub rotation_axis: Option<f32>,
-    pub pitch_axis: Option<f32>,
-    pub grip_axis: Option<f32>
-}
-
 
 #[cfg(test)]
 mod tests {
